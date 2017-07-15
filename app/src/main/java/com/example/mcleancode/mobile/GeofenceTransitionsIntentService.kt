@@ -3,10 +3,12 @@ package com.example.mcleancode.mobile
 import android.app.IntentService
 import android.content.Context
 import android.content.Intent
+import android.os.Handler
 import android.util.Log
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofenceStatusCodes
 import com.google.android.gms.location.GeofencingEvent
+import android.widget.Toast
 
 class GeofenceTransitionsIntentService: IntentService("GeofenceTransitionsIntentService") {
     override fun onHandleIntent(intent: Intent?) {
@@ -35,9 +37,20 @@ class GeofenceTransitionsIntentService: IntentService("GeofenceTransitionsIntent
 
     private fun toastOnEnterAndExit(geofencingEvent: GeofencingEvent) {
         when(geofencingEvent.geofenceTransition) {
-            Geofence.GEOFENCE_TRANSITION_ENTER ->  Log.i("Transition", "ENTER")
-            Geofence.GEOFENCE_TRANSITION_EXIT -> Log.i("Transition", "EXIT")
-            else ->  Log.i("Transition", "UNKNOWN")
+            Geofence.GEOFENCE_TRANSITION_ENTER -> toast("Enter")
+            Geofence.GEOFENCE_TRANSITION_EXIT -> toast("Exit")
+            else ->  toast("Unknown")
+        }
+    }
+
+    private fun toast(text: String) {
+        val mainHandler = Handler(mainLooper)
+
+        mainHandler.post {
+            val context = applicationContext
+            val duration = Toast.LENGTH_SHORT
+            val toast = Toast.makeText(context, text, duration)
+            toast.show()
         }
     }
 }
