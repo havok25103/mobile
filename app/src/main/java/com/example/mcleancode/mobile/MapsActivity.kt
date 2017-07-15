@@ -1,11 +1,8 @@
 package com.example.mcleancode.mobile
 
-import android.app.PendingIntent
-import android.content.Intent
 import android.location.Location
 import android.support.v4.app.FragmentActivity
 import android.os.Bundle
-import android.text.format.DateUtils
 import android.util.Log
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
@@ -13,17 +10,13 @@ import com.google.android.gms.location.*
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.location.Geofence
-
-
 
 class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private val mMapUpdater: MapUpdater = MapUpdater()
     private var mGoogleApiClient: GoogleApiClient? = null
-    private var mGeofencingClient: GeofencingClient? = null
-    private var mGeofencePendingIntent: PendingIntent? = null
     private var mLocationRequest: LocationRequest? = null
+    private var mGameWorld: GameWorld? = null
     private var mMap: GoogleMap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,12 +29,12 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
                 .addApi(LocationServices.API)
                 .build()
 
-        mGeofencingClient = LocationServices.getGeofencingClient(this)
-
         mLocationRequest = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                 .setInterval(10000)
                 .setFastestInterval(5000)
+
+        mGameWorld = GameWorld(this)
 
         mapFragment().getMapAsync(this)
     }
@@ -49,39 +42,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
     override fun onResume() {
         super.onResume()
         mGoogleApiClient!!.connect()
-
-        val latitude = 51.5033640
-        val longitude = -0.1276250
-        val radiusInMeters = 20.0f
-        val expirationInMilliseconds = DateUtils.DAY_IN_MILLIS
-
-        val geofence = Geofence.Builder()
-                .setRequestId("Foo")
-                .setCircularRegion(latitude, longitude, radiusInMeters)
-                .setExpirationDuration(expirationInMilliseconds)
-                .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER or Geofence.GEOFENCE_TRANSITION_EXIT)
-                .build()
-
-        val geofenceList: MutableList<Geofence> = arrayListOf()
-        geofenceList.add(geofence)
-
-        val builder = GeofencingRequest.Builder()
-            .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
-            .addGeofences(geofenceList)
-            .build()
-
-        var pendingIntent: PendingIntent?
-        if(mGeofencePendingIntent != null) {
-            pendingIntent = mGeofencePendingIntent
-        } else {
-            val intent = Intent(this, GeofenceTransitionsIntentService::class.java)
-            pendingIntent = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        }
-
-        mGeofencingClient!!.addGeofences(builder, pendingIntent)
-                .addOnSuccessListener { Log.i("Geofence I On Success", "Trigger") }
-                .addOnFailureListener { Log.i("Geofence I On Failure", "Trigger") }
-
+        mGameWorld!!.addBeacons()
     }
 
     override fun onPause() {

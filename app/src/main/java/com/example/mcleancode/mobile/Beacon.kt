@@ -1,19 +1,23 @@
 package com.example.mcleancode.mobile
 
-import android.location.Location
+import android.text.format.DateUtils
+import com.google.android.gms.location.Geofence
 
-class Beacon(val center: Location, val radius: Float) {
+class Beacon(val centerLat: Double, val centerLong: Double, val radiusInMeters: Float, val id: String) {
+
+    private val expirationInMilliseconds = DateUtils.DAY_IN_MILLIS
+    private var geofence: Geofence? = null
+
     init {
-       // Do beacon things
+        geofence = Geofence.Builder()
+                .setRequestId(id)
+                .setCircularRegion(centerLat, centerLong, radiusInMeters)
+                .setExpirationDuration(expirationInMilliseconds)
+                .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER or Geofence.GEOFENCE_TRANSITION_EXIT)
+                .build()
     }
 
-    fun inRange(currentLoacation: Location): Boolean {
-        // Use the distance from the center of the beacon to indicate if you are close enough to get a signal
-        return true
-    }
-
-    private fun metersFromCenter(currentLoacation: Location): Float {
-        // Calculate how close you are to the center of the beacon
-        return 0.0f
+    fun asGeofence(): Geofence {
+        return geofence!!
     }
 }
