@@ -4,18 +4,15 @@ import android.app.IntentService
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import android.widget.Toast
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofenceStatusCodes
 import com.google.android.gms.location.GeofencingEvent
 
 class GeofenceTransitionsIntentService: IntentService("GeofenceTransitionsIntentService") {
-    val toastDuration = Toast.LENGTH_LONG
-
     override fun onHandleIntent(intent: Intent?) {
         val geofencingEvent = GeofencingEvent.fromIntent(intent)
         handleAnyErrors(this, geofencingEvent)
-        toastOnEnterAndExit(this, geofencingEvent)
+        toastOnEnterAndExit(geofencingEvent)
     }
 
     private fun handleAnyErrors(context: Context, geofencingEvent: GeofencingEvent) {
@@ -36,11 +33,11 @@ class GeofenceTransitionsIntentService: IntentService("GeofenceTransitionsIntent
         }
     }
 
-    private fun toastOnEnterAndExit(context: Context, geofencingEvent: GeofencingEvent) {
+    private fun toastOnEnterAndExit(geofencingEvent: GeofencingEvent) {
         when(geofencingEvent.geofenceTransition) {
-            Geofence.GEOFENCE_TRANSITION_ENTER -> Toast.makeText(context, "ENTER", toastDuration)
-            Geofence.GEOFENCE_TRANSITION_EXIT -> Toast.makeText(context, "EXIT", toastDuration)
-            else -> Toast.makeText(context, "UNKNOWN", toastDuration)
+            Geofence.GEOFENCE_TRANSITION_ENTER ->  Log.i("Transition", "ENTER")
+            Geofence.GEOFENCE_TRANSITION_EXIT -> Log.i("Transition", "EXIT")
+            else ->  Log.i("Transition", "UNKNOWN")
         }
     }
 }

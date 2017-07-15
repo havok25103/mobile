@@ -50,9 +50,9 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
         super.onResume()
         mGoogleApiClient!!.connect()
 
-        val latitude = 0.0
-        val longitude = 0.0
-        val radiusInMeters = 1.0f
+        val latitude = 51.5033640
+        val longitude = -0.1276250
+        val radiusInMeters = 20.0f
         val expirationInMilliseconds = DateUtils.DAY_IN_MILLIS
 
         val geofence = Geofence.Builder()
