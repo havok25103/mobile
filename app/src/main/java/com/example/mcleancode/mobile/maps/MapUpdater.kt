@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile
+package com.example.mcleancode.mobile.maps
 
 import android.location.Location
 import com.google.android.gms.maps.CameraUpdateFactory
