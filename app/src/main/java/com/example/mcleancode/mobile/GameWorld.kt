@@ -25,7 +25,7 @@ class GameWorld(val context: Context) {
     private var mGeofencePendingIntent: PendingIntent? = null
 
     fun addBeacons() {
-        beacons.forEach { beacon -> geofenceList.add(beacon.asGeofence()) }
+        beacons.forEach { beacon -> geofenceList.add(beacon.geofence) }
         buildGeofences()
     }
 
