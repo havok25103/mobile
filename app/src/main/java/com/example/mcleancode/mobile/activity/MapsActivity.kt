@@ -4,7 +4,7 @@ import android.location.Location
 import android.support.v4.app.FragmentActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.mcleancode.mobile.GameWorld
+import com.example.mcleancode.mobile.game.GameWorld
 import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.maps.MapUpdater
 import com.google.android.gms.common.ConnectionResult
@@ -45,7 +45,6 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
     override fun onResume() {
         super.onResume()
         mGoogleApiClient!!.connect()
-        mGameWorld!!.addBeacons()
     }
 
     override fun onPause() {

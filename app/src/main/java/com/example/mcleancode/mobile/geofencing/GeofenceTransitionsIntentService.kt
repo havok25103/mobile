@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile
+package com.example.mcleancode.mobile.geofencing
 
 import android.app.IntentService
 import android.content.Context
@@ -9,6 +9,7 @@ import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofenceStatusCodes
 import com.google.android.gms.location.GeofencingEvent
 import android.widget.Toast
+import com.example.mcleancode.mobile.R
 
 class GeofenceTransitionsIntentService: IntentService("GeofenceTransitionsIntentService") {
     override fun onHandleIntent(intent: Intent?) {

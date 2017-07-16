@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <service android:name=".GeofenceTransitionsIntentService"/>
+        <service android:name=".geofencing.GeofenceTransitionsIntentService"/>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile
+package com.example.mcleancode.mobile.game
 
 import android.text.format.DateUtils
 import com.google.android.gms.location.Geofence
