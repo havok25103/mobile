@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.geofencing
+package com.example.mcleancode.mobile.game
 
 import android.app.IntentService
 import android.content.Context
