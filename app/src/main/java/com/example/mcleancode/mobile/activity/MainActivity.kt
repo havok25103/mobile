@@ -1,30 +1,27 @@
 package com.example.mcleancode.mobile.activity
 
+import android.app.Activity
 import android.location.Location
-import android.support.v4.app.FragmentActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.mcleancode.mobile.game.GameWorld
-import com.example.mcleancode.mobile.R
-import com.example.mcleancode.mobile.maps.MapUpdater
+import com.example.mcleancode.mobile.view.ScannerView
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 
-class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-    private val mMapUpdater: MapUpdater = MapUpdater()
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mLocationRequest: LocationRequest? = null
     private var mGameWorld: GameWorld? = null
-    private var mMap: GoogleMap? = null
+    private var mScannerView: ScannerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
+
+        mScannerView = ScannerView(this)
+        setContentView(mScannerView)
 
         mGoogleApiClient = GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -38,8 +35,6 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
                 .setFastestInterval(5000)
 
         mGameWorld = GameWorld(this)
-
-        mapFragment().getMapAsync(this)
     }
 
     override fun onResume() {
@@ -56,12 +51,9 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
         }
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-    }
-
     override fun onLocationChanged(location: Location?) {
-        mMapUpdater.update(mMap, location)
+        mScannerView!!.animationSpeed++
+        mScannerView!!.proximity++
     }
 
     override fun onConnected(bundle: Bundle?) {
@@ -69,7 +61,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this)
 
         if(location != null) {
-            mMapUpdater.update(mMap, location)
+            // Update Map
         }
     }
 
@@ -79,9 +71,5 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, GoogleApiClient.Con
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
         Log.i("onConnectionFailed", "Location services connection failed with code ${connectionResult.errorCode}")
-    }
-
-    private fun mapFragment(): SupportMapFragment {
-        return supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
     }
 }
