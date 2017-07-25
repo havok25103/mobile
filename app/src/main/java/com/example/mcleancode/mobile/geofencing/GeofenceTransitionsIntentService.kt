@@ -10,11 +10,13 @@ import com.google.android.gms.location.GeofenceStatusCodes
 import com.google.android.gms.location.GeofencingEvent
 import android.widget.Toast
 import com.example.mcleancode.mobile.R
+import com.example.mcleancode.mobile.activity.JournalEntryActivity
 
 class GeofenceTransitionsIntentService: IntentService("GeofenceTransitionsIntentService") {
     override fun onHandleIntent(intent: Intent?) {
         val geofencingEvent = GeofencingEvent.fromIntent(intent)
         handleAnyErrors(this, geofencingEvent)
+        transitionToJournalEntryActivity()
         toastOnEnterAndExit(geofencingEvent)
     }
 
@@ -34,6 +36,12 @@ class GeofenceTransitionsIntentService: IntentService("GeofenceTransitionsIntent
             GeofenceStatusCodes.GEOFENCE_TOO_MANY_PENDING_INTENTS -> return resources.getString(R.string.geofence_too_many_pending_intents)
             else -> return resources.getString(R.string.geofence_unknown_error)
         }
+    }
+
+    private fun transitionToJournalEntryActivity() {
+        val intent = Intent(this, JournalEntryActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 
     private fun toastOnEnterAndExit(geofencingEvent: GeofencingEvent) {

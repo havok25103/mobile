@@ -10,9 +10,9 @@ class GameWorld(context: Context) {
 
     private val beacons: Array<Beacon> = arrayOf(
             Beacon(
-                    id = "Vespr",
-                    centerLong = -0.1276250,
-                    centerLat = 51.5033640,
+                    id = "UniKey",
+                    centerLong = -81.3812620,
+                    centerLat = 28.5449380,
                     radiusInMeters = 20.0f
             )
     )
