@@ -4,8 +4,10 @@ import android.app.Activity
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
+import com.example.mcleancode.mobile.R
+import com.example.mcleancode.mobile.drawable.ScannerDrawable
 import com.example.mcleancode.mobile.game.GameWorld
-import com.example.mcleancode.mobile.view.ScannerView
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
@@ -15,13 +17,13 @@ class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiC
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mLocationRequest: LocationRequest? = null
     private var mGameWorld: GameWorld? = null
-    private var mScannerView: ScannerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        mScannerView = ScannerView(this)
-        setContentView(mScannerView)
+        val scanner = findViewById(R.id.scanner) as ImageView
+        scanner.background = ScannerDrawable()
 
         mGoogleApiClient = GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -52,8 +54,7 @@ class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiC
     }
 
     override fun onLocationChanged(location: Location?) {
-        mScannerView!!.animationSpeed++
-        mScannerView!!.proximity++
+        // update map
     }
 
     override fun onConnected(bundle: Bundle?) {

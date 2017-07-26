@@ -4,6 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mcleancode.mobile.activity.JournalEntryActivity">
+    tools:context="com.example.mcleancode.mobile.activity.MainActivity">
+
+    <ImageView
+        android:id="@+id/scanner"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="TODO" />
 
 </android.support.constraint.ConstraintLayout>
