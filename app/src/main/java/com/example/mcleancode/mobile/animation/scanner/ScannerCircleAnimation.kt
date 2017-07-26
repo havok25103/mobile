@@ -10,8 +10,8 @@ class ScannerCircleAnimation(val lightColor: Int, val darkColor: Int, framesPerS
 
     fun step(rate: Float, canvas: Canvas, x: Float, y: Float, glowing: Boolean) {
         setupPaint(glowing)
-        draw(canvas, x, y)
         scaleCircle(rate)
+        draw(canvas, x, y)
         handleDirectionFlip()
     }
 

@@ -27,7 +27,7 @@ open class ScannerComponent(val framesPerSecond: Int) {
     }
 
     protected fun scaleCircle(rate: Float) {
-        radius += pulseDir * rate *  delta(startRadius, endRadius)
+        radius += pulseDir * rate * delta(startRadius, endRadius)
     }
 
     protected fun scaleStroke(rate: Float) {
@@ -35,6 +35,7 @@ open class ScannerComponent(val framesPerSecond: Int) {
     }
 
     protected fun delta(min: Float, max: Float): Float {
-        return ( max - min ) / framesPerSecond
+        val offset = 10 // MAGIC NO IDEA WHY THIS WORKS
+        return ( max - min ) / ( framesPerSecond - offset )
     }
 }

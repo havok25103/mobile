@@ -10,8 +10,8 @@ class ScannerCircleBlurAnimation(val color: Int, framesPerSecond: Int): ScannerC
 
     fun step(rate: Float, canvas: Canvas, x: Float, y: Float, glowing: Boolean) {
         setupPaint(x, y, glowing)
-        draw(canvas, x, y)
         scaleCircle(rate)
+        draw(canvas, x, y)
         handleDirectionFlip()
     }
 
