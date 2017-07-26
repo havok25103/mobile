@@ -2,17 +2,16 @@ package com.example.mcleancode.mobile.animation.scanner
 
 import android.graphics.*
 
-class ScannerCircleBlurAnimation(val color: Int): ScannerComponent() {
-    override val radiusMin = 130f
-    override val radiusMax = 230f
+class ScannerCircleBlurAnimation(val color: Int, framesPerSecond: Int): ScannerComponent(framesPerSecond) {
+    override val startRadius = 130f
+    override val endRadius = 230f
 
     override var radius = 130f
-    override var pulseDir = 1
 
     fun step(rate: Float, canvas: Canvas, x: Float, y: Float, glowing: Boolean) {
         setupPaint(x, y, glowing)
         draw(canvas, x, y)
-        scaleCircle(rate = rate, delta = 2f)
+        scaleCircle(rate)
         handleDirectionFlip()
     }
 

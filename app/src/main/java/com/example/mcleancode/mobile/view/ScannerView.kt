@@ -11,13 +11,15 @@ class ScannerView(context: Context): View(context) {
     var animationSpeed = 1.0f
     var proximity = 0
 
+    private val framesPerSecond = 60
+
     private val darkBlueColor = Color.parseColor("#0f2535")
     private val brightBlueColor = Color.parseColor("#49bbfe")
     private val blackColor = Color.parseColor("#111111")
 
-    private val donutAnimation = ScannerDonutAnimation(brightBlueColor, darkBlueColor)
-    private val circleAnimation = ScannerCircleAnimation(brightBlueColor, darkBlueColor)
-    private val circleBlurAnimation = ScannerCircleBlurAnimation(brightBlueColor)
+    private val donutAnimation = ScannerDonutAnimation(brightBlueColor, darkBlueColor, framesPerSecond)
+    private val circleAnimation = ScannerCircleAnimation(brightBlueColor, darkBlueColor, framesPerSecond)
+    private val circleBlurAnimation = ScannerCircleBlurAnimation(brightBlueColor, framesPerSecond)
 
     init {
         this.postInvalidate()
@@ -61,6 +63,6 @@ class ScannerView(context: Context): View(context) {
     }
 
     private fun loopAnimation() {
-        this.postInvalidateDelayed((1000 / 60).toLong())
+        this.postInvalidateDelayed((1000 / framesPerSecond).toLong())
     }
 }

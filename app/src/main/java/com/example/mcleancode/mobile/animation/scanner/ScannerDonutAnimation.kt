@@ -2,19 +2,21 @@ package com.example.mcleancode.mobile.animation.scanner
 
 import android.graphics.*
 
-class ScannerDonutAnimation(val lightColor: Int, val darkColor: Int): ScannerComponent() {
-    override val radiusMin = 170f
-    override val radiusMax = 320f
+class ScannerDonutAnimation(val lightColor: Int, val darkColor: Int, framesPerSecond: Int): ScannerComponent(framesPerSecond) {
+    override val startRadius = 170f
+    override val endRadius = 320f
+
+    override val startStrokeWidth= 40f
+    override val endStrokeWidth = 10f
 
     override var radius = 170f
-    override var pulseDir = 1
     override var strokeWidth = 40f
 
     fun step(rate: Float, canvas: Canvas, x: Float, y: Float, glowing: Boolean) {
         setupPaint(glowing)
         draw(canvas, x, y)
-        scaleCircle(rate = rate, delta = 3f)
-        scaleStroke(rate = rate, delta = -0.25f)
+        scaleCircle(rate)
+        scaleStroke(rate)
         handleDirectionFlip()
     }
 
