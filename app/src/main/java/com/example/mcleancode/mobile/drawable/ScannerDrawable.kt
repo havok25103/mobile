@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable
 import android.view.animation.LinearInterpolator
 
 class ScannerDrawable: Drawable() {
-
     private val darkBlueColor = Color.parseColor("#0f2535")
     private val brightBlueColor = Color.parseColor("#49bbfe")
     private val blackColor = Color.parseColor("#111111")
@@ -25,47 +24,31 @@ class ScannerDrawable: Drawable() {
     val circleBlurPaint = Paint()
     val donutPaint = Paint()
 
+    val animationDuration = 1000L
+
     init {
-        circlePaint.color = brightBlueColor
+        setupPaintsWithDefaults()
 
-        donutPaint.style = Paint.Style.STROKE
-        donutPaint.color = brightBlueColor
-
-        circleRadiusValueAnimator.duration = 1000
-        circleRadiusValueAnimator.repeatCount = ValueAnimator.INFINITE
-        circleRadiusValueAnimator.repeatMode = ValueAnimator.REVERSE
-        circleRadiusValueAnimator.interpolator = LinearInterpolator()
-        circleRadiusValueAnimator.addUpdateListener { animation ->
+        setupAnimatorWithDefaults(circleRadiusValueAnimator) { animation ->
             currentCircleRadius = animation.animatedValue as Float
         }
-        circleRadiusValueAnimator.start()
 
-        circleBlurRadiusValueAnimator.duration = 1000
-        circleBlurRadiusValueAnimator.repeatCount = ValueAnimator.INFINITE
-        circleBlurRadiusValueAnimator.repeatMode = ValueAnimator.REVERSE
-        circleBlurRadiusValueAnimator.interpolator = LinearInterpolator()
-        circleBlurRadiusValueAnimator.addUpdateListener { animation ->
+        setupAnimatorWithDefaults(circleBlurRadiusValueAnimator) { animation ->
             currentCircleBlurRadius = animation.animatedValue as Float
         }
-        circleBlurRadiusValueAnimator.start()
 
-        donutRadiusValueAnimator.duration = 1000
-        donutRadiusValueAnimator.repeatCount = ValueAnimator.INFINITE
-        donutRadiusValueAnimator.repeatMode = ValueAnimator.REVERSE
-        donutRadiusValueAnimator.interpolator = LinearInterpolator()
-        donutRadiusValueAnimator.addUpdateListener { animation ->
+        setupAnimatorWithDefaults(donutRadiusValueAnimator) { animation ->
             currentDonutRadius = animation.animatedValue as Float
         }
-        donutRadiusValueAnimator.start()
 
-        donutStrokeWidthValueAnimator.duration = 1000
-        donutStrokeWidthValueAnimator.repeatCount = ValueAnimator.INFINITE
-        donutStrokeWidthValueAnimator.repeatMode = ValueAnimator.REVERSE
-        donutStrokeWidthValueAnimator.interpolator = LinearInterpolator()
-        donutStrokeWidthValueAnimator.addUpdateListener { animation ->
+        setupAnimatorWithDefaults(donutStrokeWidthValueAnimator) { animation ->
             currentDonutStrokeWidth = animation.animatedValue as Float
             invalidateSelf()
         }
+
+        circleRadiusValueAnimator.start()
+        circleBlurRadiusValueAnimator.start()
+        donutRadiusValueAnimator.start()
         donutStrokeWidthValueAnimator.start()
     }
 
@@ -83,13 +66,36 @@ class ScannerDrawable: Drawable() {
 
     override fun draw(canvas: Canvas?) {
         if(canvas == null) { return }
+        val centerX = centerX()
+        val centerY = centerY()
+        updateDrawing(canvas, centerX, centerY)
+    }
 
-        val bounds = bounds
-        val centerX = bounds.exactCenterX()
-        val centerY = bounds.exactCenterY()
+    private fun setupPaintsWithDefaults() {
+        circlePaint.color = brightBlueColor
+        donutPaint.style = Paint.Style.STROKE
+        donutPaint.color = brightBlueColor
+    }
 
-        circleBlurPaint.shader = RadialGradient(centerX, centerY, currentCircleBlurRadius, brightBlueColor, Color.TRANSPARENT, Shader.TileMode.CLAMP)
+    private fun setupAnimatorWithDefaults(animator: ValueAnimator, callback: (animation: ValueAnimator) -> Unit ) {
+        animator.duration = animationDuration
+        animator.repeatCount = ValueAnimator.INFINITE
+        animator.repeatMode = ValueAnimator.REVERSE
+        animator.interpolator = LinearInterpolator()
+        animator.addUpdateListener { animation -> callback(animation) }
+    }
+
+    private fun centerX(): Float {
+        return bounds.exactCenterX()
+    }
+
+    private fun centerY(): Float {
+        return bounds.exactCenterY()
+    }
+
+    private fun updateDrawing(canvas: Canvas, centerX: Float, centerY: Float) {
         donutPaint.strokeWidth = currentDonutStrokeWidth
+        circleBlurPaint.shader = RadialGradient(centerX, centerY, currentCircleBlurRadius, brightBlueColor, Color.TRANSPARENT, Shader.TileMode.CLAMP)
 
         canvas.drawColor(blackColor)
         canvas.drawCircle(centerX, centerY, currentCircleRadius, circlePaint)
