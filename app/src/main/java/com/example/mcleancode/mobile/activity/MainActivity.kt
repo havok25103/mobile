@@ -17,13 +17,16 @@ class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiC
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mLocationRequest: LocationRequest? = null
     private var mGameWorld: GameWorld? = null
+    private val mScannerDrawable: ScannerDrawable = ScannerDrawable()
+
+    private var counter = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val scanner = findViewById(R.id.scanner) as ImageView
-        scanner.background = ScannerDrawable()
+        scanner.background = mScannerDrawable
 
         mGoogleApiClient = GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -54,7 +57,21 @@ class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiC
     }
 
     override fun onLocationChanged(location: Location?) {
-        // update map
+        mScannerDrawable.setToHere()
+
+        if(counter == 0) {
+            mScannerDrawable.setToNear()
+            counter++
+        } else if(counter == 1) {
+            mScannerDrawable.setToHere()
+            counter++
+        } else if(counter == 2) {
+            mScannerDrawable.setToNear()
+            counter++
+        } else if(counter == 3) {
+            mScannerDrawable.setToFar()
+            counter = 0
+        }
     }
 
     override fun onConnected(bundle: Bundle?) {
