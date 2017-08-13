@@ -57,19 +57,17 @@ class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiC
     }
 
     override fun onLocationChanged(location: Location?) {
-        mScannerDrawable.setToHere()
-
         if(counter == 0) {
-            mScannerDrawable.setToNear()
+            mScannerDrawable.setFarToNear()
             counter++
         } else if(counter == 1) {
-            mScannerDrawable.setToHere()
+            mScannerDrawable.setNearToHere()
             counter++
         } else if(counter == 2) {
-            mScannerDrawable.setToNear()
+            mScannerDrawable.setHereToNear()
             counter++
         } else if(counter == 3) {
-            mScannerDrawable.setToFar()
+            mScannerDrawable.setNearToFar()
             counter = 0
         }
     }

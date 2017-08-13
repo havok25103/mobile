@@ -30,14 +30,17 @@ class ScannerDrawable: Drawable() {
     private val donutRadiusValueAnimator: ValueAnimator = ValueAnimator.ofFloat(170f, 320f)
     private val donutStrokeWidthValueAnimator: ValueAnimator = ValueAnimator.ofFloat(40f, 10f)
 
-    private val toHereColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightBlueColor, brightRedColor)
-    private val toHereGlowColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightBlueColorGlow, brightRedColorGlow)
+    private val farToNearColorAnimator: ValueAnimator = ValueAnimator.ofInt(darkBlueColor, brightBlueColor)
+    private val farToNearGlowColorAnimator: ValueAnimator = ValueAnimator.ofInt(darkBlueColor, brightBlueColorGlow)
 
-    private val toNearColorAnimator: ValueAnimator = ValueAnimator.ofInt(darkBlueColor, brightBlueColor)
-    private val toNearGlowColorAnimator: ValueAnimator = ValueAnimator.ofInt(darkBlueColor, brightBlueColorGlow)
+    private val nearToHereColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightBlueColor, brightRedColor)
+    private val nearToHereGlowColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightBlueColorGlow, brightRedColorGlow)
 
-    private val toFarColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightBlueColor, darkBlueColor)
-    private val toFarGlowColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightBlueColorGlow, darkBlueColorGlow)
+    private val hereToNearColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightRedColor, brightBlueColor)
+    private val hereToNearGlowColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightRedColorGlow, brightBlueColorGlow)
+
+    private val nearToFarColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightBlueColor, darkBlueColor)
+    private val nearToFarGlowColorAnimator: ValueAnimator = ValueAnimator.ofInt(brightBlueColorGlow, darkBlueColorGlow)
 
     private var currentCircleRadius = 100f
     private var currentCircleBlurRadius = 130f
@@ -70,32 +73,46 @@ class ScannerDrawable: Drawable() {
             invalidateSelf()
         }
 
-        setupColorAnimatorWithDefaults(toHereGlowColorAnimator) { animation ->
-            currentGlowColors[0] = animation.animatedValue as Int
-        }
-
-        setupColorAnimatorWithDefaults(toHereColorAnimator) { animation ->
+        setupColorAnimatorWithDefaults(farToNearColorAnimator) { animation ->
             currentColor = animation.animatedValue as Int
             invalidateSelf()
         }
 
-        setupColorAnimatorWithDefaults(toNearGlowColorAnimator) { animation ->
+        setupColorAnimatorWithDefaults(farToNearGlowColorAnimator) { animation ->
             currentGlowColors[0] = animation.animatedValue as Int
+            invalidateSelf()
         }
 
-        setupColorAnimatorWithDefaults(toNearColorAnimator) { animation ->
+        setupColorAnimatorWithDefaults(nearToHereColorAnimator) { animation ->
             currentColor = animation.animatedValue as Int
             invalidateSelf()
         }
 
-        setupColorAnimatorWithDefaults(toFarGlowColorAnimator) { animation ->
+        setupColorAnimatorWithDefaults(nearToHereGlowColorAnimator) { animation ->
             currentGlowColors[0] = animation.animatedValue as Int
+            invalidateSelf()
         }
 
-        setupColorAnimatorWithDefaults(toFarColorAnimator) { animation ->
+        setupColorAnimatorWithDefaults(hereToNearColorAnimator) { animation ->
             currentColor = animation.animatedValue as Int
             invalidateSelf()
         }
+
+        setupColorAnimatorWithDefaults(hereToNearGlowColorAnimator) { animation ->
+            currentGlowColors[0] = animation.animatedValue as Int
+            invalidateSelf()
+        }
+
+        setupColorAnimatorWithDefaults(nearToFarColorAnimator) { animation ->
+            currentColor = animation.animatedValue as Int
+            invalidateSelf()
+        }
+
+        setupColorAnimatorWithDefaults(nearToFarGlowColorAnimator) { animation ->
+            currentGlowColors[0] = animation.animatedValue as Int
+            invalidateSelf()
+        }
+
 
         circleRadiusValueAnimator.start()
         circleBlurRadiusValueAnimator.start()
@@ -125,19 +142,24 @@ class ScannerDrawable: Drawable() {
         updateDrawing(canvas, centerX, centerY)
     }
 
-    fun setToHere() {
-        toHereGlowColorAnimator.start()
-        toHereColorAnimator.start()
+    fun setFarToNear() {
+        farToNearColorAnimator.start()
+        farToNearGlowColorAnimator.start()
     }
 
-    fun setToNear() {
-        toNearGlowColorAnimator.start()
-        toNearColorAnimator.start()
+    fun setNearToHere() {
+        nearToHereColorAnimator.start()
+        nearToHereGlowColorAnimator.start()
     }
 
-    fun setToFar() {
-        toFarGlowColorAnimator.start()
-        toFarColorAnimator.start()
+    fun setHereToNear() {
+        hereToNearColorAnimator.start()
+        hereToNearGlowColorAnimator.start()
+    }
+
+    fun setNearToFar() {
+        nearToFarColorAnimator.start()
+        nearToFarGlowColorAnimator.start()
     }
 
     private fun setupAnimatorWithDefaults(animator: ValueAnimator, callback: (animation: ValueAnimator) -> Unit ) {
