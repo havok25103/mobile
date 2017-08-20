@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import com.example.mcleancode.mobile.R
-import com.example.mcleancode.mobile.drawable.ScannerDrawable
+import com.example.mcleancode.mobile.drawable.scanner.ScannerDrawable
 import com.example.mcleancode.mobile.game.GameWorld
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
