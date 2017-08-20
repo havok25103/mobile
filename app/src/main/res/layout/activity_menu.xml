@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mcleancode.mobile.activity.MenuActivity">
+
+    <Button
+        android:id="@+id/scannerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scanner"/>
+
+    <Button
+        android:id="@+id/journalEntriesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scannerButton"
+        android:text="@string/journal_entries"/>
+
+    <Button
+        android:id="@+id/caseFileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/journalEntriesButton"
+        android:text="@string/case_file"/>
+
+</RelativeLayout>

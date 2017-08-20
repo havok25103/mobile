@@ -35,7 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.JournalEntryActivity"></activity>
+        <activity android:name=".activity.JournalEntryActivity" />
+        <activity android:name=".activity.CaseFileActivity" />
+        <activity android:name=".activity.MenuActivity" />
+        <activity android:name=".activity.JournalEntriesActivity"></activity>
     </application>
 
 </manifest>

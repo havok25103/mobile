@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mcleancode.mobile.activity.JournalEntryActivity">
+    tools:context="com.example.mcleancode.mobile.activity.JournalEntriesActivity">
 
     <TextView
-        android:id="@+id/journalEntryTitle"
+        android:id="@+id/journalEntriesTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Foxtail"/>
+        android:text="@string/journal_entries" />
 
-    <TextView
-        android:id="@+id/entryText"
+    <ListView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/journalEntryTitle"
-        android:text="@string/lorem_ipsum"/>
+        android:layout_below="@+id/journalEntriesTitle"/>
 
 </RelativeLayout>

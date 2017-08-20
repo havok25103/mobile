@@ -2,9 +2,18 @@
     <string name="app_name">Mobile</string>
     <string name="title_activity_maps">Map</string>
 
-    <string name="geofence_not_available"></string>
-    <string name="geofence_too_many_geofences"></string>
-    <string name="geofence_too_many_pending_intents"></string>
-    <string name="geofence_unknown_error"></string>
+    <string name="geofence_not_available">Geofence Not Available</string>
+    <string name="geofence_too_many_geofences">Too Many Geofences</string>
+    <string name="geofence_too_many_pending_intents">Too Many Pending Intents</string>
+    <string name="geofence_unknown_error">Unknown Error</string>
+
+    <string name="scanner">Scanner</string>
+    <string name="journal_entries">Journal Entries</string>
+    <string name="case_file">Case File</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis gravida sodales. Ut interdum dignissim massa, sed lacinia dui porttitor nec. Sed accumsan gravida diam id lobortis. Etiam varius lorem id porttitor cursus. Donec sollicitudin nulla magna, quis fringilla lacus luctus ut. Fusce dictum, purus sed lacinia mattis, tellus dolor fringilla velit, nec dapibus sapien nulla a ligula. Donec risus felis, lacinia sit amet diam in, tempor elementum risus. Donec sit amet nulla at nulla dictum cursus nec non nulla. In tempor eget ligula a mattis. In feugiat est ut tempor pharetra. Proin interdum eget lacus non elementum.
+        Sed venenatis magna dignissim sem feugiat, vitae fermentum dui pulvinar. Donec sed felis elementum velit posuere vestibulum et quis erat. Curabitur felis mi, aliquet ut libero at, sagittis placerat metus. Nulla ultrices dapibus nisl nec rutrum. Cras eget ante eu arcu posuere consequat. Morbi cursus viverra metus, in hendrerit libero sollicitudin vel. Proin ornare dictum eros non rhoncus. Quisque et interdum quam. Quisque ante ipsum, finibus interdum purus ac, egestas auctor risus. Nullam nulla lectus, lobortis vel nulla a, sodales lobortis lectus.
+    </string>
 
 </resources>
