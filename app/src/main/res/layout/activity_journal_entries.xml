@@ -20,6 +20,7 @@
         android:layout_below="@+id/menuButtonFragment"/>
 
     <ListView
+        android:id="@+id/journalEntriesList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/journalEntriesTitle"/>
