@@ -1,9 +1,8 @@
 package com.example.mcleancode.mobile.activity
 
-import android.app.Activity
-import android.content.Intent
 import android.location.Location
 import android.os.Bundle
+import android.support.v4.app.FragmentActivity
 import android.util.Log
 import android.widget.ImageView
 import com.example.mcleancode.mobile.R
@@ -13,7 +12,7 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
 
-class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+class MainActivity : FragmentActivity(), GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mLocationRequest: LocationRequest? = null
@@ -25,8 +24,6 @@ class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiC
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        registerMenuButton()
 
         val scanner = findViewById(R.id.scanner) as ImageView
         scanner.background = mScannerDrawable
@@ -90,13 +87,5 @@ class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiC
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
         Log.i("onConnectionFailed", "Location services connection failed with code ${connectionResult.errorCode}")
-    }
-
-    private fun registerMenuButton() {
-        val button = findViewById(R.id.menuButton)
-        button.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

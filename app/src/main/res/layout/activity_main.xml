@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.mcleancode.mobile.activity.MainActivity">
 
-    <Button
-        android:id="@+id/menuButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Menu"/>
-
     <ImageView
         android:id="@+id/scanner"
         android:layout_width="fill_parent"
@@ -19,5 +13,11 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:contentDescription="TODO" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
+        android:id="@+id/menuButtonFragment"/>
 
 </android.support.constraint.ConstraintLayout>
