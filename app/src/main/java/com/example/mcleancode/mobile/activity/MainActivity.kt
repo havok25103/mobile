@@ -1,6 +1,7 @@
 package com.example.mcleancode.mobile.activity
 
 import android.app.Activity
+import android.content.Intent
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +25,8 @@ class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiC
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        registerMenuButton()
 
         val scanner = findViewById(R.id.scanner) as ImageView
         scanner.background = mScannerDrawable
@@ -87,5 +90,13 @@ class MainActivity : Activity(), GoogleApiClient.ConnectionCallbacks, GoogleApiC
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
         Log.i("onConnectionFailed", "Location services connection failed with code ${connectionResult.errorCode}")
+    }
+
+    private fun registerMenuButton() {
+        val button = findViewById(R.id.menuButton)
+        button.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
