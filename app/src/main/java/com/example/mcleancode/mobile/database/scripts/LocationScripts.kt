@@ -5,7 +5,7 @@ import com.example.mcleancode.mobile.database.schema.LocationSchema
 object LocationScripts {
     fun createLocationTable(): String {
         return "CREATE TABLE " + LocationSchema.Table.TABLE_NAME + " (" +
-                LocationSchema.Table._ID + " INTEGER PRIMARY KEY," +
+                LocationSchema.Table._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 LocationSchema.Table.COLUMN_NAME_NAME + " TEXT," +
                 LocationSchema.Table.COLUMN_NAME_LAT + " FLOAT," +
                 LocationSchema.Table.COLUMN_NAME_LONG + " FLOAT," +
