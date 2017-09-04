@@ -7,7 +7,7 @@ object LocationSchema {
         companion object {
             val _ID = "_id"
             val TABLE_NAME = "location"
-            val COLUMN_NAME_NAME = "name"
+            val COLUMN_NAME_TITLE = "title"
             val COLUMN_NAME_LAT = "lat"
             val COLUMN_NAME_LONG = "long"
             val COLUMN_NAME_RADIUS = "radius"

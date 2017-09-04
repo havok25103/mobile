@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity
 import android.util.Log
 import android.widget.ImageView
 import com.example.mcleancode.mobile.R
+import com.example.mcleancode.mobile.database.helpers.MobileDataSource
 import com.example.mcleancode.mobile.drawable.scanner.ScannerDrawable
 import com.example.mcleancode.mobile.game.GameWorld
 import com.google.android.gms.common.ConnectionResult
@@ -17,6 +18,7 @@ class MainActivity : FragmentActivity(), GoogleApiClient.ConnectionCallbacks, Go
     private var mGoogleApiClient: GoogleApiClient? = null
     private var mLocationRequest: LocationRequest? = null
     private var mGameWorld: GameWorld? = null
+
     private val mScannerDrawable: ScannerDrawable = ScannerDrawable()
 
     private var counter = 0
@@ -49,7 +51,6 @@ class MainActivity : FragmentActivity(), GoogleApiClient.ConnectionCallbacks, Go
 
     override fun onPause() {
         super.onPause()
-
         if(mGoogleApiClient!!.isConnected) {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this)
             mGoogleApiClient!!.disconnect()
