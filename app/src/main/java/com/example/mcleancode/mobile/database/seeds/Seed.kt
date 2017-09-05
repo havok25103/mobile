@@ -1,11 +1,11 @@
 package com.example.mcleancode.mobile.database.seeds
 
-import com.example.mcleancode.mobile.database.criteria.LocationCriteria
+import com.example.mcleancode.mobile.database.entities.LocationEntity
 
 class Seed {
     companion object {
         val locations = arrayListOf(
-                LocationCriteria(
+                LocationEntity(
                     title = "Foo",
                     lat = 28.5383f,
                     long = 81.3792f,
@@ -13,7 +13,7 @@ class Seed {
                     entry = "Lorem Ipsum",
                     status = 0
                 ),
-                LocationCriteria(
+                LocationEntity(
                     title = "Bar",
                     lat = 28.5383f,
                     long = 81.3792f,
@@ -21,7 +21,7 @@ class Seed {
                     entry = "Lorem Ipsum",
                     status = 0
                 ),
-                LocationCriteria(
+                LocationEntity(
                     title = "Baz",
                     lat = 28.5383f,
                     long = 81.3792f,

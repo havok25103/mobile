@@ -1,6 +1,6 @@
-package com.example.mcleancode.mobile.database.criteria
+package com.example.mcleancode.mobile.database.entities
 
-data class LocationCriteria(
+data class LocationEntity(
         val title: String,
         val lat: Float,
         val long: Float,
