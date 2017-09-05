@@ -1,7 +1,6 @@
 package com.example.mcleancode.mobile.activity
 
 import android.content.Intent
-import android.database.Cursor
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.widget.ArrayAdapter
@@ -28,9 +27,9 @@ class JournalEntriesActivity : FragmentActivity() {
         mMobileDataSource!!.open()
 
         val listView = listView()
-        val cursor = mMobileDataSource!!.selectAllLocations()
 
-        populateLocationsList(listView, cursor)
+        fetchLocations()
+        populateLocationsList(listView)
         registerLocationsEvents(listView)
     }
 
@@ -43,27 +42,35 @@ class JournalEntriesActivity : FragmentActivity() {
         return findViewById(R.id.journalEntriesList) as ListView
     }
 
-    private fun populateLocationsList(listView: ListView, cursor: Cursor) {
+    private fun populateLocationsList(listView: ListView) {
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, mLocations)
+        listView.adapter = arrayAdapter
+    }
+
+    private fun fetchLocations() {
         mLocations.clear()
+
+        val cursor = mMobileDataSource!!.selectAllLocations()
 
         cursor.moveToFirst()
 
         while(!cursor.isAfterLast) {
+            val idIndex = cursor.getColumnIndex(LocationSchema.Table._ID)
             val nameIndex = cursor.getColumnIndex(LocationSchema.Table.COLUMN_NAME_TITLE)
+
+            val id = cursor.getInt(idIndex)
             val name = cursor.getString(nameIndex)
+
             mLocations.add(name)
             cursor.moveToNext()
         }
         cursor.close()
-
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, mLocations)
-        listView.adapter = arrayAdapter
-
     }
 
     private fun registerLocationsEvents(listView: ListView) {
         listView.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this, JournalEntryActivity::class.java)
+            intent.putExtra("LOCATION_ID", "1")
             startActivity(intent)
         }
     }

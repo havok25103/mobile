@@ -20,9 +20,32 @@ class MobileDataSource(val context: Context) {
     fun selectAllLocations(): Cursor {
         val query = mDatabase!!.query(
                 LocationSchema.Table.TABLE_NAME,
-                arrayOf(LocationSchema.Table.COLUMN_NAME_TITLE),
+                arrayOf(
+                        LocationSchema.Table._ID,
+                        LocationSchema.Table.COLUMN_NAME_TITLE
+                ),
                 null, // where clause
                 null, // where params
+                null, // group by
+                null, // having
+                null // order by
+        )
+
+        return query
+    }
+
+    fun selectSingleLocation(id: String): Cursor {
+        val whereClause = "_ID = ?"
+
+        val query = mDatabase!!.query (
+                LocationSchema.Table.TABLE_NAME,
+                arrayOf(
+                        LocationSchema.Table._ID,
+                        LocationSchema.Table.COLUMN_NAME_TITLE,
+                        LocationSchema.Table.COLUMN_NAME_ENTRY
+                ),
+                whereClause,
+                arrayOf(id),
                 null, // group by
                 null, // having
                 null // order by
