@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,24 +8,43 @@
     tools:context="com.example.mcleancode.mobile.activity.MenuActivity"
     android:background="@drawable/background_gradient">
 
-    <Button
-        android:id="@+id/scannerButton"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/scanner"/>
+        android:layout_gravity="center_vertical">
 
-    <Button
-        android:id="@+id/journalEntriesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/scannerButton"
-        android:text="@string/journal_entries"/>
+        <Button
+            android:id="@+id/scannerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/scanner"/>
 
-    <Button
-        android:id="@+id/caseFileButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/journalEntriesButton"
-        android:text="@string/case_file"/>
+        <Button
+            android:id="@+id/journalEntriesButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/scannerButton"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/journal_entries"/>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/caseFileButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/journalEntriesButton"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/case_file"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

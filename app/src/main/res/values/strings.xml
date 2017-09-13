@@ -7,9 +7,9 @@
     <string name="geofence_too_many_pending_intents">Too Many Pending Intents</string>
     <string name="geofence_unknown_error">Unknown Error</string>
 
-    <string name="scanner">Scanner</string>
-    <string name="journal_entries">Journal Entries</string>
-    <string name="case_file">Case File</string>
+    <string name="scanner">SCANNER</string>
+    <string name="journal_entries">JOURNAL ENTRIES</string>
+    <string name="case_file">CASE FILE</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis gravida sodales. Ut interdum dignissim massa, sed lacinia dui porttitor nec. Sed accumsan gravida diam id lobortis. Etiam varius lorem id porttitor cursus. Donec sollicitudin nulla magna, quis fringilla lacus luctus ut. Fusce dictum, purus sed lacinia mattis, tellus dolor fringilla velit, nec dapibus sapien nulla a ligula. Donec risus felis, lacinia sit amet diam in, tempor elementum risus. Donec sit amet nulla at nulla dictum cursus nec non nulla. In tempor eget ligula a mattis. In feugiat est ut tempor pharetra. Proin interdum eget lacus non elementum.
