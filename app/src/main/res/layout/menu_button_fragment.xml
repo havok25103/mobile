@@ -4,10 +4,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <Button
+    <ImageButton
         android:id="@+id/menuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Menu"/>
+        android:contentDescription="@string/menu"
+        android:background="@null"
+        android:src="@drawable/menu_icon"/>
 
 </RelativeLayout>

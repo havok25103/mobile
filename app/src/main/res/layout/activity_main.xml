@@ -17,16 +17,23 @@
         android:layout_centerVertical="true"
         android:contentDescription="TODO" />
 
-    <fragment
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
-        android:id="@+id/menuButtonFragment"/>
+        android:layout_height="wrap_content">
 
-    <com.example.mcleancode.mobile.view.HeaderTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/scanning_for_locations"
-        style="@style/HeaderText"/>
+        <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
+            android:id="@+id/menuButtonFragment"/>
+
+        <com.example.mcleancode.mobile.view.HeaderTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/menuButtonFragment"
+            android:text="@string/scanning_for_locations"
+            style="@style/HeaderText"/>
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
