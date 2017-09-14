@@ -1,10 +1,8 @@
-package com.example.mcleancode.mobile.drawable.scanner
+package com.example.mcleancode.mobile.scanner
 
 import android.animation.ValueAnimator
 import android.graphics.*
 import android.graphics.drawable.Drawable
-import com.example.mcleancode.mobile.drawable.scanner.ScannerColorTransition
-import com.example.mcleancode.mobile.drawable.scanner.ScannerShapeTransition
 
 class ScannerDrawable: Drawable() {
     private val glowColorStops = FloatArray(2)

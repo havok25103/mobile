@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.drawable.scanner
+package com.example.mcleancode.mobile.scanner
 
 import android.animation.ValueAnimator
 import android.view.animation.LinearInterpolator

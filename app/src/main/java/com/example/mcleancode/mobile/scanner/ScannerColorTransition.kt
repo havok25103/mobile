@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.drawable.scanner
+package com.example.mcleancode.mobile.scanner
 
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
