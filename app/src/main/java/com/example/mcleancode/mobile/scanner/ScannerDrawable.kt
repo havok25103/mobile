@@ -11,7 +11,6 @@ class ScannerDrawable: Drawable() {
     private val circleBlurPaint = Paint()
     private val donutPaint = Paint()
 
-    private val blackColor = Color.parseColor("#111111")
     private val darkBlueColor = Color.parseColor("#0f2535")
     private val darkBlueColorGlow = Color.TRANSPARENT
     private val brightBlueColor = Color.parseColor("#49bbfe")
@@ -153,7 +152,6 @@ class ScannerDrawable: Drawable() {
     }
 
     private fun updateDrawing(canvas: Canvas, centerX: Float, centerY: Float) {
-        canvas.drawColor(blackColor)
         canvas.drawCircle(centerX, centerY, currentCircleBlurRadius, circleBlurPaint)
         canvas.drawCircle(centerX, centerY, currentCircleRadius, circlePaint)
         canvas.drawCircle(centerX, centerY, currentDonutRadius, donutPaint)

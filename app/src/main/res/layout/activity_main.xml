@@ -3,8 +3,10 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="20dp"
+    android:background="@drawable/background_gradient"
     tools:context="com.example.mcleancode.mobile.activity.MainActivity">
 
     <ImageView
@@ -20,5 +22,11 @@
         android:layout_height="wrap_content"
         android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
         android:id="@+id/menuButtonFragment"/>
+
+    <com.example.mcleancode.mobile.view.HeaderTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/scanning_for_locations"
+        style="@style/HeaderText"/>
 
 </android.support.constraint.ConstraintLayout>

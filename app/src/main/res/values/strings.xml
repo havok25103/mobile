@@ -7,6 +7,7 @@
     <string name="geofence_too_many_pending_intents">Too Many Pending Intents</string>
     <string name="geofence_unknown_error">Unknown Error</string>
 
+    <string name="scanning_for_locations">SCANNING FOR LOCATIONS</string>
     <string name="scanner">SCANNER</string>
     <string name="journal_entries">JOURNAL ENTRIES</string>
     <string name="case_file">CASE FILE</string>
