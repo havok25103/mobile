@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.mcleancode.mobile.activity.JournalEntryActivity"
-    android:background="@drawable/background_gradient">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_gradient"
+    tools:context="com.example.mcleancode.mobile.activity.JournalEntryActivity">
 
-    <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
-        android:id="@+id/menuButtonFragment"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
 
-    <TextView
-        android:id="@+id/journalEntryTitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/menuButtonFragment"
-        android:text=""/>
+        <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
+            android:id="@+id/menuButtonFragment"/>
 
-    <TextView
-        android:id="@+id/journalEntryText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/journalEntryTitle"
-        android:text=""/>
+        <com.example.mcleancode.mobile.view.HeaderTextView
+            android:id="@+id/journalEntryTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/menuButtonFragment"
+            android:text=""
+            style="@style/HeaderText"/>
 
-</RelativeLayout>
+        <com.example.mcleancode.mobile.view.BodyTextView
+            android:id="@+id/journalEntryText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/journalEntryTitle"
+            android:text=""
+            style="@style/BodyText"/>
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mcleancode.mobile.activity.CaseFileActivity"
-    android:background="@drawable/background_gradient">
 
-    <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
-        android:id="@+id/menuButtonFragment"/>
+    android:background="@drawable/background_gradient"
+    tools:context="com.example.mcleancode.mobile.activity.CaseFileActivity">
 
-    <TextView
-        android:id="@+id/caseFileTitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/menuButtonFragment"
-        android:text="Case: F674S12" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
 
-    <TextView
-        android:id="@+id/entryText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/caseFileTitle"
-        android:text="@string/lorem_ipsum" />
+        <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
+            android:id="@+id/menuButtonFragment"/>
 
-</RelativeLayout>
+        <com.example.mcleancode.mobile.view.HeaderTextView
+            android:id="@+id/caseFileTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/menuButtonFragment"
+            android:text="Case: F674S12"
+            style="@style/HeaderText"/>
+
+        <com.example.mcleancode.mobile.view.BodyTextView
+            android:id="@+id/entryText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/caseFileTitle"
+            android:text="@string/lorem_ipsum"
+            style="@style/BodyText"/>
+
+    </RelativeLayout>
+
+</ScrollView>
+
+

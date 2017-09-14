@@ -7,18 +7,28 @@
         <item name="android:colorPrimary">@color/colorPrimary</item>
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:colorAccent">@color/colorAccent</item>
-
-        <item name="android:buttonStyle">
-            @style/button
-        </item>
     </style>
 
-    <style name="button" parent="@android:style/Widget.Button">
+    <style name="HeaderText">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">20dp</item>
+    </style>
+
+    <style name="BodyText">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+
+    <style name="MenuButton" parent="@android:style/Widget.Button">
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">24dip</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:background">@drawable/button</item>
+        <item name="android:background">@drawable/menu_button</item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
     </style>

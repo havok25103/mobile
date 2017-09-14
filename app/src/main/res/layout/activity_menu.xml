@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context="com.example.mcleancode.mobile.activity.MenuActivity"
     android:background="@drawable/background_gradient">
 
@@ -13,37 +14,34 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical">
 
-        <Button
+        <com.example.mcleancode.mobile.view.MenuButtonView
             android:id="@+id/scannerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@string/scanner"/>
+            android:text="@string/scanner"
+            style="@style/MenuButton"/>
 
-        <Button
+        <com.example.mcleancode.mobile.view.MenuButtonView
             android:id="@+id/journalEntriesButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/scannerButton"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@string/journal_entries"/>
+            android:text="@string/journal_entries"
+            style="@style/MenuButton"/>
 
-        <Button
+        <com.example.mcleancode.mobile.view.MenuButtonView
             android:id="@+id/caseFileButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/journalEntriesButton"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@string/case_file"/>
+            android:text="@string/case_file"
+            style="@style/MenuButton"/>
 
     </RelativeLayout>
 
