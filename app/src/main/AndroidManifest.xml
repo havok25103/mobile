@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service android:name=".game.GeofenceTransitionsIntentService" />
+        <service android:name=".Game.GeofenceTransitionsIntentService" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -27,7 +27,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.example.mcleancode.mobile.UI.Activities.MainActivity"
             android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,10 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.JournalEntryActivity" />
-        <activity android:name=".activity.CaseFileActivity" />
-        <activity android:name=".activity.MenuActivity" />
-        <activity android:name=".activity.JournalEntriesActivity"></activity>
+        <activity android:name="com.example.mcleancode.mobile.UI.Activities.JournalEntryActivity" />
+        <activity android:name="com.example.mcleancode.mobile.UI.Activities.CaseFileActivity" />
+        <activity android:name="com.example.mcleancode.mobile.UI.Activities.MenuActivity" />
+        <activity android:name="com.example.mcleancode.mobile.UI.Activities.JournalEntriesActivity"></activity>
     </application>
 
 </manifest>

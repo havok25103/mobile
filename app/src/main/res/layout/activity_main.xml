@@ -7,7 +7,7 @@
     android:layout_height="fill_parent"
     android:padding="20dp"
     android:background="@drawable/background_gradient"
-    tools:context="com.example.mcleancode.mobile.activity.MainActivity">
+    tools:context=".UI.Activities.MainActivity">
 
     <ImageView
         android:id="@+id/scanner"
@@ -24,10 +24,10 @@
         <fragment
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
+            android:name="com.example.mcleancode.mobile.UI.MenuButton.MenuButtonFragment"
             android:id="@+id/menuButtonFragment"/>
 
-        <com.example.mcleancode.mobile.view.HeaderTextView
+        <com.example.mcleancode.mobile.UI.HeaderText.HeaderTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/menuButtonFragment"

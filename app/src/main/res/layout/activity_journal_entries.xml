@@ -6,16 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context="com.example.mcleancode.mobile.activity.JournalEntriesActivity"
+    tools:context=".UI.Activities.JournalEntriesActivity"
     android:background="@drawable/background_gradient">
 
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:name="com.example.mcleancode.mobile.fragments.MenuButtonFragment"
+        android:name="com.example.mcleancode.mobile.UI.MenuButton.MenuButtonFragment"
         android:id="@+id/menuButtonFragment"/>
 
-    <com.example.mcleancode.mobile.view.HeaderTextView
+    <com.example.mcleancode.mobile.UI.HeaderText.HeaderTextView
         android:id="@+id/journalEntriesTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

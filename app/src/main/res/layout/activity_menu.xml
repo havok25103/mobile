@@ -6,7 +6,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="20dp"
-    tools:context="com.example.mcleancode.mobile.activity.MenuActivity"
+    tools:context=".UI.Activities.MenuActivity"
     android:background="@drawable/background_gradient">
 
     <RelativeLayout
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical">
 
-        <com.example.mcleancode.mobile.view.MenuButtonView
+        <com.example.mcleancode.mobile.UI.MenuButton.MenuButtonView
             android:id="@+id/scannerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:text="@string/scanner"
             style="@style/MenuButton"/>
 
-        <com.example.mcleancode.mobile.view.MenuButtonView
+        <com.example.mcleancode.mobile.UI.MenuButton.MenuButtonView
             android:id="@+id/journalEntriesButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:text="@string/journal_entries"
             style="@style/MenuButton"/>
 
-        <com.example.mcleancode.mobile.view.MenuButtonView
+        <com.example.mcleancode.mobile.UI.MenuButton.MenuButtonView
             android:id="@+id/caseFileButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
