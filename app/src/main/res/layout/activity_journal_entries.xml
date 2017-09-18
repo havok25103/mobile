@@ -27,6 +27,8 @@
         android:id="@+id/journalEntriesList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/journalEntriesTitle"/>
+        android:layout_below="@+id/journalEntriesTitle"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="20.0sp"/>
 
 </RelativeLayout>

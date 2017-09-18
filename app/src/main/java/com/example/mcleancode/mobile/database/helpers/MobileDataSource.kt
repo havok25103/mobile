@@ -22,6 +22,7 @@ class MobileDataSource(val context: Context) {
                 LocationSchema.Table.TABLE_NAME,
                 arrayOf(
                         LocationSchema.Table._ID,
+                        LocationSchema.Table.COLUMN_NAME_STATUS,
                         LocationSchema.Table.COLUMN_NAME_TITLE
                 ),
                 null, // where clause

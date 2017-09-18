@@ -23,10 +23,18 @@
         <item name="android:lineSpacingMultiplier">1.5</item>
     </style>
 
+    <style name="JournalEntryListItem">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
     <style name="MenuButton" parent="@android:style/Widget.Button">
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">24dip</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/menu_button</item>
         <item name="android:focusable">true</item>

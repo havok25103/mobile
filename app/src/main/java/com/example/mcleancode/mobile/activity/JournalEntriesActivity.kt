@@ -1,18 +1,18 @@
 package com.example.mcleancode.mobile.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
-import android.widget.ArrayAdapter
 import android.widget.ListView
 
 import com.example.mcleancode.mobile.R
+import com.example.mcleancode.mobile.adapters.JournalEntriesListAdapter
 import com.example.mcleancode.mobile.database.helpers.MobileDataSource
 import com.example.mcleancode.mobile.database.schema.LocationSchema
+import com.example.mcleancode.mobile.viewmodels.JournalEntriesListViewModel
 
 class JournalEntriesActivity : FragmentActivity() {
 
-    private val mLocations = ArrayList<String>()
+    private val mLocations = ArrayList<JournalEntriesListViewModel>()
     private var mMobileDataSource: MobileDataSource? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,6 @@ class JournalEntriesActivity : FragmentActivity() {
 
         fetchLocations()
         populateLocationsList(listView)
-        registerLocationsEvents(listView)
     }
 
     override fun onPause() {
@@ -43,7 +42,7 @@ class JournalEntriesActivity : FragmentActivity() {
     }
 
     private fun populateLocationsList(listView: ListView) {
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, mLocations)
+        val arrayAdapter = JournalEntriesListAdapter(this, mLocations)
         listView.adapter = arrayAdapter
     }
 
@@ -57,21 +56,18 @@ class JournalEntriesActivity : FragmentActivity() {
         while(!cursor.isAfterLast) {
             val idIndex = cursor.getColumnIndex(LocationSchema.Table._ID)
             val nameIndex = cursor.getColumnIndex(LocationSchema.Table.COLUMN_NAME_TITLE)
+            val statusIndex = cursor.getColumnIndex(LocationSchema.Table.COLUMN_NAME_STATUS)
 
             val id = cursor.getInt(idIndex)
+            val status = cursor.getInt(statusIndex)
             val name = cursor.getString(nameIndex)
 
-            mLocations.add(name)
+            val viewModel = JournalEntriesListViewModel(id, status, name)
+
+            mLocations.add(viewModel)
+
             cursor.moveToNext()
         }
         cursor.close()
-    }
-
-    private fun registerLocationsEvents(listView: ListView) {
-        listView.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(this, JournalEntryActivity::class.java)
-            intent.putExtra("LOCATION_ID", "1")
-            startActivity(intent)
-        }
     }
 }
