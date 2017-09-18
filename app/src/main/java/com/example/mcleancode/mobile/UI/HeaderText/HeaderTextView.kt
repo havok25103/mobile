@@ -2,25 +2,22 @@ package com.example.mcleancode.mobile.UI.HeaderText
 
 import android.content.Context
 import android.widget.TextView
-import android.graphics.Typeface
 import android.util.AttributeSet
+import com.example.mcleancode.mobile.UI.Interfaces.FontSettable
 
 
-class HeaderTextView: TextView {
+class HeaderTextView: TextView, FontSettable {
+    private val fontFamily = "fonts/OrbitronRegular.ttf"
+
     constructor(context: Context): super(context) {
-        setFont()
+        setFont(context, this, fontFamily)
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        setFont()
+        setFont(context, this, fontFamily)
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
-        setFont()
-    }
-
-    private fun setFont() {
-        val font = Typeface.createFromAsset(context.assets, "fonts/OrbitronRegular.ttf")
-        setTypeface(font, Typeface.NORMAL)
+        setFont(context, this, fontFamily)
     }
 }

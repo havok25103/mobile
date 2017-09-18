@@ -2,25 +2,22 @@ package com.example.mcleancode.mobile.UI.BodyText
 
 import android.content.Context
 import android.widget.TextView
-import android.graphics.Typeface
 import android.util.AttributeSet
+import com.example.mcleancode.mobile.UI.Interfaces.FontSettable
 
 
-class BodyTextView: TextView {
+class BodyTextView: TextView, FontSettable {
+    private val fontFamily = "fonts/SourceSansProRegular.ttf"
+
     constructor(context: Context): super(context) {
-        setFont()
+        setFont(context, this, fontFamily)
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        setFont()
+        setFont(context, this, fontFamily)
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
-        setFont()
-    }
-
-    private fun setFont() {
-        val font = Typeface.createFromAsset(context.assets, "fonts/SourceSansProRegular.ttf")
-        setTypeface(font, Typeface.NORMAL)
+        setFont(context, this, fontFamily)
     }
 }
