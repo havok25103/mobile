@@ -12,7 +12,7 @@
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:name="com.example.mcleancode.mobile.UI.MenuButton.MenuButtonFragment"
+        android:name="com.example.mcleancode.mobile.UI.HamburgerButton.HamburgerButtonFragment"
         android:id="@+id/menuButtonFragment"/>
 
     <com.example.mcleancode.mobile.UI.HeaderText.HeaderTextView
@@ -20,7 +20,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/journal_entries"
-        android:layout_below="@+id/menuButtonFragment"
+        android:layout_below="@+id/hamburgerButtonFragment"
         style="@style/HeaderText"/>
 
     <ListView

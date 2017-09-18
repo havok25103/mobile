@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.UI.MenuButton
+package com.example.mcleancode.mobile.UI.HamburgerButton
 
 import android.app.Fragment
 import android.content.Intent
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.UI.Activities.MenuActivity
 
-class MenuButtonFragment: Fragment() {
+class HamburgerButtonFragment : Fragment() {
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstance: Bundle?): View {
         val v = inflater.inflate(R.layout.menu_button_fragment, container, false)

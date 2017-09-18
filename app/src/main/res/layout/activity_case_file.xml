@@ -18,8 +18,8 @@
         <fragment
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:name="com.example.mcleancode.mobile.UI.MenuButton.MenuButtonFragment"
-            android:id="@+id/menuButtonFragment"/>
+            android:name="com.example.mcleancode.mobile.UI.HamburgerButton.HamburgerButtonFragment"
+            android:id="@+id/hamburgerButtonFragment"/>
 
         <com.example.mcleancode.mobile.UI.HeaderText.HeaderTextView
             android:id="@+id/caseFileTitle"
