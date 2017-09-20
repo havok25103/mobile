@@ -9,7 +9,6 @@ import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.UI.JournalEntriesList.JournalEntriesListAdapter
 import com.example.mcleancode.mobile.Database.Helpers.MobileDataSource
 import com.example.mcleancode.mobile.Database.Schema.LocationSchema
-import com.example.mcleancode.mobile.Enums.LocationStatusEnum
 import com.example.mcleancode.mobile.UI.JournalEntriesList.JournalEntriesListViewModel
 
 class JournalEntriesActivity : FragmentActivity() {

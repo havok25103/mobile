@@ -9,7 +9,6 @@ import android.widget.TextView
 import android.view.LayoutInflater
 import android.widget.ImageView
 import com.example.mcleancode.mobile.Abilities.JournalEntryAbility
-import com.example.mcleancode.mobile.Enums.LocationStatusEnum
 import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.UI.Activities.JournalEntryActivity
 import com.example.mcleancode.mobile.UI.Interfaces.FontSettable
