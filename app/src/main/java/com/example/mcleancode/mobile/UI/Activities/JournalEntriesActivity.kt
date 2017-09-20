@@ -3,6 +3,7 @@ package com.example.mcleancode.mobile.UI.Activities
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.widget.ListView
+import com.example.mcleancode.mobile.Abilities.JournalEntryAbility
 
 import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.UI.JournalEntriesList.JournalEntriesListAdapter
@@ -43,13 +44,16 @@ class JournalEntriesActivity : FragmentActivity() {
     }
 
     private fun populateLocationsList(listView: ListView) {
-        val filteredLocations = mLocations.filter { item ->
-            LocationStatusEnum.Found.status == item.status ||
-            LocationStatusEnum.Read.status == item.status
+        val arrayAdapter = JournalEntriesListAdapter(this, filteredLocations())
+        listView.adapter = arrayAdapter
+    }
+
+    private fun filteredLocations(): ArrayList<JournalEntriesListViewModel> {
+        val locations = mLocations.filter { item ->
+            JournalEntryAbility.canView(item.status)
         }
 
-        val arrayAdapter = JournalEntriesListAdapter(this, ArrayList(filteredLocations))
-        listView.adapter = arrayAdapter
+        return ArrayList(locations)
     }
 
     private fun fetchLocations() {

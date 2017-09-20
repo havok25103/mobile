@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.view.LayoutInflater
 import android.widget.ImageView
+import com.example.mcleancode.mobile.Abilities.JournalEntryAbility
 import com.example.mcleancode.mobile.Enums.LocationStatusEnum
 import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.UI.Activities.JournalEntryActivity
@@ -58,13 +59,9 @@ class JournalEntriesListAdapter(context: Context, items: ArrayList<JournalEntrie
     private fun setItemStatus(imageView: ImageView, journalEntry: JournalEntriesListViewModel) {
         val status = journalEntry.status
 
-        if(needsReading(status)) {
+        if(JournalEntryAbility.needsReading(status)) {
             imageView.setImageResource(R.drawable.alert_icon)
         }
-    }
-
-    private fun needsReading(status: Int): Boolean {
-        return LocationStatusEnum.Found.status == status
     }
 
     private fun registerEvents(convertView: View, journalEntry: JournalEntriesListViewModel) {
