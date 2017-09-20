@@ -1,10 +1,9 @@
 package com.example.mcleancode.mobile.Enums
 
 enum class LocationStatusEnum(val status: Int) {
-    Far(0),
-    Near(1),
-    Here(2),
-    Found(3),
-    NotRead(4),
-    Read(5)
+    Far(1),
+    Near(2),
+    Here(4),
+    Found(8),
+    Read(16)
 }

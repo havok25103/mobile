@@ -11,7 +11,7 @@ import com.example.mcleancode.mobile.Database.Seeds.Seed
 class MobileDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
-        val DATABASE_VERSION = 2
+        val DATABASE_VERSION = 1
         val DATABASE_NAME = "Mobile.db"
     }
 
