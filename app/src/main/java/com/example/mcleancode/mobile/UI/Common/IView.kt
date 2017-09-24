@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.UI.Interfaces
+package com.example.mcleancode.mobile.UI.Common
 
 interface IView<T> {
     fun setPresenter(presenter: T)

@@ -8,24 +8,23 @@ import com.example.mcleancode.mobile.Abilities.JournalEntryAbility
 import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.UI.JournalEntriesList.JournalEntriesListAdapter
 import com.example.mcleancode.mobile.Database.Helpers.MobileDataSource
-import com.example.mcleancode.mobile.Database.Schema.LocationSchema
+import com.example.mcleancode.mobile.Finders.LocationFinder
 import com.example.mcleancode.mobile.UI.JournalEntriesList.JournalEntriesListViewModel
 
 class JournalEntriesActivity : FragmentActivity() {
 
     private val mLocations = ArrayList<JournalEntriesListViewModel>()
-    private var mMobileDataSource: MobileDataSource? = null
+    private val mMobileDataSource = MobileDataSource(this)
+    private val mLocationFinder = LocationFinder(mMobileDataSource)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_journal_entries)
-        mMobileDataSource = MobileDataSource(this)
     }
 
     override fun onResume() {
         super.onResume()
-
-        mMobileDataSource!!.open()
+        mMobileDataSource.open()
 
         val listView = listView()
 
@@ -35,7 +34,7 @@ class JournalEntriesActivity : FragmentActivity() {
 
     override fun onPause() {
         super.onPause()
-        mMobileDataSource!!.close()
+        mMobileDataSource.close()
     }
 
     private fun listView(): ListView {
@@ -56,27 +55,13 @@ class JournalEntriesActivity : FragmentActivity() {
     }
 
     private fun fetchLocations() {
+        val foundLocations = mLocationFinder.findAll()
+
         mLocations.clear()
 
-        val cursor = mMobileDataSource!!.selectAllLocations()
-
-        cursor.moveToFirst()
-
-        while(!cursor.isAfterLast) {
-            val idIndex = cursor.getColumnIndex(LocationSchema.Table._ID)
-            val nameIndex = cursor.getColumnIndex(LocationSchema.Table.COLUMN_NAME_TITLE)
-            val statusIndex = cursor.getColumnIndex(LocationSchema.Table.COLUMN_NAME_STATUS)
-
-            val id = cursor.getInt(idIndex)
-            val status = cursor.getInt(statusIndex)
-            val name = cursor.getString(nameIndex)
-
-            val viewModel = JournalEntriesListViewModel(id, status, name)
-
+        foundLocations.forEach { location ->
+            val viewModel = JournalEntriesListViewModel(location.id, location.status, location.title)
             mLocations.add(viewModel)
-
-            cursor.moveToNext()
         }
-        cursor.close()
     }
 }

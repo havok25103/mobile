@@ -1,7 +1,7 @@
 package com.example.mcleancode.mobile.UI.JournalEntry
 
-import com.example.mcleancode.mobile.UI.Interfaces.IPresenter
-import com.example.mcleancode.mobile.UI.Interfaces.IView
+import com.example.mcleancode.mobile.UI.Common.IPresenter
+import com.example.mcleancode.mobile.UI.Common.IView
 
 class JournalEntryContract {
     interface View: IView<Presenter> {

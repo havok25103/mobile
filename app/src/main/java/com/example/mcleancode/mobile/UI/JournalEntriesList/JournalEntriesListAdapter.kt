@@ -13,20 +13,21 @@ import com.example.mcleancode.mobile.Abilities.JournalEntryAbility
 import com.example.mcleancode.mobile.Database.Helpers.MobileDataSource
 import com.example.mcleancode.mobile.Database.Schema.LocationSchema
 import com.example.mcleancode.mobile.Enums.LocationStatusEnum
+import com.example.mcleancode.mobile.Finders.LocationFinder
 import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.UI.JournalEntry.JournalEntryActivity
-import com.example.mcleancode.mobile.UI.Interfaces.IFontSettable
+import com.example.mcleancode.mobile.UI.Common.IFontSettable
 
 class JournalEntriesListAdapter(context: Context, items: ArrayList<JournalEntriesListViewModel>):
         ArrayAdapter<JournalEntriesListViewModel>(context, 0, items),
         IFontSettable {
 
     private val fontFamily = "fonts/SourceSansProRegular.ttf"
-    private var mMobileDataSource: MobileDataSource? = null
+    private val mMobileDataSource = MobileDataSource(context)
+    private val mLocationFinder = LocationFinder(mMobileDataSource)
 
     init {
-        mMobileDataSource = MobileDataSource(getContext())
-        mMobileDataSource!!.open()
+        mMobileDataSource.open()
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -95,6 +96,6 @@ class JournalEntriesListAdapter(context: Context, items: ArrayList<JournalEntrie
             LocationStatusEnum.valueOf("Read").status
         )
 
-        mMobileDataSource!!.updateSingleLocation(journalEntry.id.toString(), values)
+        mLocationFinder.update(journalEntry.id.toString(), values)
     }
 }

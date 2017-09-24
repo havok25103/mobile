@@ -19,7 +19,7 @@ class JournalEntryActivity : AppCompatActivity() {
 
         mJournalEntryPresenter = JournalEntryPresenter(
             locationId = intent.getStringExtra("LOCATION_ID"),
-            store = mMobileDataSource!!,
+            dataSource = mMobileDataSource!!,
             journalEntryView = findViewById(R.id.journalEntryView) as JournalEntryView
         )
     }
