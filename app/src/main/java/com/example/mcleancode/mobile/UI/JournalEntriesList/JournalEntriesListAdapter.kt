@@ -1,5 +1,6 @@
 package com.example.mcleancode.mobile.UI.JournalEntriesList
 
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.view.View
@@ -9,6 +10,9 @@ import android.widget.TextView
 import android.view.LayoutInflater
 import android.widget.ImageView
 import com.example.mcleancode.mobile.Abilities.JournalEntryAbility
+import com.example.mcleancode.mobile.Database.Helpers.MobileDataSource
+import com.example.mcleancode.mobile.Database.Schema.LocationSchema
+import com.example.mcleancode.mobile.Enums.LocationStatusEnum
 import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.UI.Activities.JournalEntryActivity
 import com.example.mcleancode.mobile.UI.Interfaces.FontSettable
@@ -18,6 +22,12 @@ class JournalEntriesListAdapter(context: Context, items: ArrayList<JournalEntrie
         FontSettable {
 
     private val fontFamily = "fonts/SourceSansProRegular.ttf"
+    private var mMobileDataSource: MobileDataSource? = null
+
+    init {
+        mMobileDataSource = MobileDataSource(getContext())
+        mMobileDataSource!!.open()
+    }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var convertView = convertView
@@ -65,9 +75,26 @@ class JournalEntriesListAdapter(context: Context, items: ArrayList<JournalEntrie
 
     private fun registerEvents(convertView: View, journalEntry: JournalEntriesListViewModel) {
         convertView.setOnClickListener {
-            val intent = Intent(context, JournalEntryActivity::class.java)
-            intent.putExtra("LOCATION_ID", journalEntry.id.toString())
-            context.startActivity(intent)
+            markFoundAsRead(journalEntry)
+            navigateToJournalEntry(journalEntry)
         }
+    }
+
+    private fun navigateToJournalEntry(journalEntry: JournalEntriesListViewModel) {
+        val intent = Intent(context, JournalEntryActivity::class.java)
+        intent.putExtra("LOCATION_ID", journalEntry.id.toString())
+        context.startActivity(intent)
+    }
+
+    private fun markFoundAsRead(journalEntry: JournalEntriesListViewModel) {
+        if(journalEntry.status == LocationStatusEnum.valueOf("Read").status) return
+
+        val values = ContentValues()
+        values.put(
+            LocationSchema.Table.COLUMN_NAME_STATUS,
+            LocationStatusEnum.valueOf("Read").status
+        )
+
+        mMobileDataSource!!.updateSingleLocation(journalEntry.id.toString(), values)
     }
 }

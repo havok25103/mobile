@@ -1,5 +1,6 @@
 package com.example.mcleancode.mobile.Database.Helpers
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -39,17 +40,30 @@ class MobileDataSource(val context: Context) {
         val whereClause = "_ID = ?"
 
         val query = mDatabase!!.query (
-                LocationSchema.Table.TABLE_NAME,
-                arrayOf(
-                        LocationSchema.Table._ID,
-                        LocationSchema.Table.COLUMN_NAME_TITLE,
-                        LocationSchema.Table.COLUMN_NAME_ENTRY
-                ),
-                whereClause,
-                arrayOf(id),
-                null, // group by
-                null, // having
-                null // order by
+            LocationSchema.Table.TABLE_NAME,
+            arrayOf(
+                    LocationSchema.Table._ID,
+                    LocationSchema.Table.COLUMN_NAME_TITLE,
+                    LocationSchema.Table.COLUMN_NAME_ENTRY
+            ),
+            whereClause,
+            arrayOf(id),
+            null, // group by
+            null, // having
+            null // order by
+        )
+
+        return query
+    }
+
+    fun updateSingleLocation(id: String, values: ContentValues): Int {
+        val whereClause = "_ID = ?"
+
+        val query = mDatabase!!.update(
+            LocationSchema.Table.TABLE_NAME,
+            values,
+            whereClause,
+            arrayOf(id)
         )
 
         return query
