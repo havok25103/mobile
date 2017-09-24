@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.UI.Activities
+package com.example.mcleancode.mobile.UI.JournalEntries
 
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
@@ -6,10 +6,8 @@ import android.widget.ListView
 import com.example.mcleancode.mobile.Abilities.JournalEntryAbility
 
 import com.example.mcleancode.mobile.R
-import com.example.mcleancode.mobile.UI.JournalEntriesList.JournalEntriesListAdapter
 import com.example.mcleancode.mobile.Database.Helpers.MobileDataSource
 import com.example.mcleancode.mobile.Finders.LocationFinder
-import com.example.mcleancode.mobile.UI.JournalEntriesList.JournalEntriesListViewModel
 
 class JournalEntriesActivity : FragmentActivity() {
 

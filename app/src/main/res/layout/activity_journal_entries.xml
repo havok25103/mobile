@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".UI.Activities.JournalEntriesActivity"
+    tools:context=".UI.JournalEntries.JournalEntriesActivity"
     android:background="@drawable/background_gradient">
 
     <fragment

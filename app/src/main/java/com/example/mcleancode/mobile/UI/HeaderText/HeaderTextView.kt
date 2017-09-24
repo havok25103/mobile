@@ -3,7 +3,7 @@ package com.example.mcleancode.mobile.UI.HeaderText
 import android.content.Context
 import android.widget.TextView
 import android.util.AttributeSet
-import com.example.mcleancode.mobile.UI.Common.IFontSettable
+import com.example.mcleancode.mobile.UI.Interfaces.IFontSettable
 
 
 class HeaderTextView: TextView, IFontSettable {

@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.UI.Common
+package com.example.mcleancode.mobile.UI.Interfaces
 
 import android.content.Context
 import android.graphics.Typeface

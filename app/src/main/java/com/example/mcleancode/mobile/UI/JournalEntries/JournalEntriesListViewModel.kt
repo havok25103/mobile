@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.UI.JournalEntriesList
+package com.example.mcleancode.mobile.UI.JournalEntries
 
 data class JournalEntriesListViewModel(
         val id: Int,

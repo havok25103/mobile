@@ -3,7 +3,7 @@ package com.example.mcleancode.mobile.UI.BodyText
 import android.content.Context
 import android.widget.TextView
 import android.util.AttributeSet
-import com.example.mcleancode.mobile.UI.Common.IFontSettable
+import com.example.mcleancode.mobile.UI.Interfaces.IFontSettable
 
 
 class BodyTextView: TextView, IFontSettable {

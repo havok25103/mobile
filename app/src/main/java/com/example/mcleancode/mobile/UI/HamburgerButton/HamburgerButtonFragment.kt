@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mcleancode.mobile.R
-import com.example.mcleancode.mobile.UI.Activities.MenuActivity
+import com.example.mcleancode.mobile.UI.Menu.MenuActivity
 
 class HamburgerButtonFragment : Fragment() {
     

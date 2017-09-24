@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.UI.JournalEntriesList
+package com.example.mcleancode.mobile.UI.JournalEntries
 
 import android.content.ContentValues
 import android.content.Context
@@ -16,7 +16,7 @@ import com.example.mcleancode.mobile.Enums.LocationStatusEnum
 import com.example.mcleancode.mobile.Finders.LocationFinder
 import com.example.mcleancode.mobile.R
 import com.example.mcleancode.mobile.UI.JournalEntry.JournalEntryActivity
-import com.example.mcleancode.mobile.UI.Common.IFontSettable
+import com.example.mcleancode.mobile.UI.Interfaces.IFontSettable
 
 class JournalEntriesListAdapter(context: Context, items: ArrayList<JournalEntriesListViewModel>):
         ArrayAdapter<JournalEntriesListViewModel>(context, 0, items),

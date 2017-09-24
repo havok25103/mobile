@@ -2,7 +2,7 @@ package com.example.mcleancode.mobile.Finders
 
 import android.content.ContentValues
 import android.database.Cursor
-import com.example.mcleancode.mobile.Finders.Common.IFinder
+import com.example.mcleancode.mobile.Finders.Interfaces.IFinder
 import com.example.mcleancode.mobile.Database.Entities.LocationEntity
 import com.example.mcleancode.mobile.Database.Helpers.MobileDataSource
 import com.example.mcleancode.mobile.Database.Schema.LocationSchema

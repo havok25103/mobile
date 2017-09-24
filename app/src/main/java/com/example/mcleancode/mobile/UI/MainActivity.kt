@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.UI.Activities
+package com.example.mcleancode.mobile.UI
 
 import android.location.Location
 import android.os.Bundle

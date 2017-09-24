@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.UI.Activities
+package com.example.mcleancode.mobile.UI.CaseFile
 
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity

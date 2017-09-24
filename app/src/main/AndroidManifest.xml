@@ -27,7 +27,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.example.mcleancode.mobile.UI.Activities.MainActivity"
+            android:name="com.example.mcleancode.mobile.UI.MainActivity"
             android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,9 +36,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.mcleancode.mobile.UI.JournalEntry.JournalEntryActivity" />
-        <activity android:name="com.example.mcleancode.mobile.UI.Activities.CaseFileActivity" />
-        <activity android:name="com.example.mcleancode.mobile.UI.Activities.MenuActivity" />
-        <activity android:name="com.example.mcleancode.mobile.UI.Activities.JournalEntriesActivity"></activity>
+        <activity android:name="com.example.mcleancode.mobile.UI.CaseFile.CaseFileActivity" />
+        <activity android:name="com.example.mcleancode.mobile.UI.Menu.MenuActivity" />
+        <activity android:name="com.example.mcleancode.mobile.UI.JournalEntries.JournalEntriesActivity"></activity>
     </application>
 
 </manifest>

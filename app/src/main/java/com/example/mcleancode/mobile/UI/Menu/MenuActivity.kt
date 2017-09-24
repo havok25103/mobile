@@ -1,10 +1,13 @@
-package com.example.mcleancode.mobile.UI.Activities
+package com.example.mcleancode.mobile.UI.Menu
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
 import com.example.mcleancode.mobile.R
+import com.example.mcleancode.mobile.UI.CaseFile.CaseFileActivity
+import com.example.mcleancode.mobile.UI.JournalEntries.JournalEntriesActivity
+import com.example.mcleancode.mobile.UI.MainActivity
 
 class MenuActivity : AppCompatActivity() {
 

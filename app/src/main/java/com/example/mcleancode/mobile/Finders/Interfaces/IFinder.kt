@@ -1,4 +1,4 @@
-package com.example.mcleancode.mobile.Finders.Common
+package com.example.mcleancode.mobile.Finders.Interfaces
 
 import android.content.ContentValues
 
