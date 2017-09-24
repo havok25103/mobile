@@ -3,9 +3,9 @@ package com.example.mcleancode.mobile.UI.MenuButton
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.Button
-import com.example.mcleancode.mobile.UI.Interfaces.FontSettable
+import com.example.mcleancode.mobile.UI.Interfaces.IFontSettable
 
-class MenuButtonView: Button, FontSettable {
+class MenuButtonView: Button, IFontSettable {
     private val fontFamily = "fonts/OrbitronRegular.ttf"
 
     constructor(context: Context): super(context) {

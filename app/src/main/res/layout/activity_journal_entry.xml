@@ -7,7 +7,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background_gradient"
-    tools:context=".UI.Activities.JournalEntryActivity">
+    tools:context=".UI.JournalEntry.JournalEntryActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,21 +20,10 @@
             android:name="com.example.mcleancode.mobile.UI.HamburgerButton.HamburgerButtonFragment"
             android:id="@+id/hamburgerButtonFragment"/>
 
-        <com.example.mcleancode.mobile.UI.HeaderText.HeaderTextView
-            android:id="@+id/journalEntryTitle"
-            android:layout_width="fill_parent"
+        <com.example.mcleancode.mobile.UI.JournalEntry.JournalEntryView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/menuButtonFragment"
-            android:text=""
-            style="@style/HeaderText"/>
-
-        <com.example.mcleancode.mobile.UI.BodyText.BodyTextView
-            android:id="@+id/journalEntryText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/journalEntryTitle"
-            android:text=""
-            style="@style/BodyText"/>
+            android:id="@+id/journalEntryView"/>
 
     </RelativeLayout>
 

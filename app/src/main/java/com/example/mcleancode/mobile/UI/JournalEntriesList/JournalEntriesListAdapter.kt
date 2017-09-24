@@ -14,12 +14,12 @@ import com.example.mcleancode.mobile.Database.Helpers.MobileDataSource
 import com.example.mcleancode.mobile.Database.Schema.LocationSchema
 import com.example.mcleancode.mobile.Enums.LocationStatusEnum
 import com.example.mcleancode.mobile.R
-import com.example.mcleancode.mobile.UI.Activities.JournalEntryActivity
-import com.example.mcleancode.mobile.UI.Interfaces.FontSettable
+import com.example.mcleancode.mobile.UI.JournalEntry.JournalEntryActivity
+import com.example.mcleancode.mobile.UI.Interfaces.IFontSettable
 
 class JournalEntriesListAdapter(context: Context, items: ArrayList<JournalEntriesListViewModel>):
         ArrayAdapter<JournalEntriesListViewModel>(context, 0, items),
-        FontSettable {
+        IFontSettable {
 
     private val fontFamily = "fonts/SourceSansProRegular.ttf"
     private var mMobileDataSource: MobileDataSource? = null

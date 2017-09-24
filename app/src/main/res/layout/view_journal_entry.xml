@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.mcleancode.mobile.UI.HeaderText.HeaderTextView
+        android:id="@+id/journalEntryTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        style="@style/HeaderText"/>
+
+    <com.example.mcleancode.mobile.UI.BodyText.BodyTextView
+        android:id="@+id/journalEntryText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/journalEntryTitle"
+        android:text=""
+        style="@style/BodyText"/>
+
+</RelativeLayout>

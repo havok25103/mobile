@@ -3,10 +3,10 @@ package com.example.mcleancode.mobile.UI.BodyText
 import android.content.Context
 import android.widget.TextView
 import android.util.AttributeSet
-import com.example.mcleancode.mobile.UI.Interfaces.FontSettable
+import com.example.mcleancode.mobile.UI.Interfaces.IFontSettable
 
 
-class BodyTextView: TextView, FontSettable {
+class BodyTextView: TextView, IFontSettable {
     private val fontFamily = "fonts/SourceSansProRegular.ttf"
 
     constructor(context: Context): super(context) {

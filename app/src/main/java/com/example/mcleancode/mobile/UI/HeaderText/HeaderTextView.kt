@@ -3,10 +3,10 @@ package com.example.mcleancode.mobile.UI.HeaderText
 import android.content.Context
 import android.widget.TextView
 import android.util.AttributeSet
-import com.example.mcleancode.mobile.UI.Interfaces.FontSettable
+import com.example.mcleancode.mobile.UI.Interfaces.IFontSettable
 
 
-class HeaderTextView: TextView, FontSettable {
+class HeaderTextView: TextView, IFontSettable {
     private val fontFamily = "fonts/OrbitronRegular.ttf"
 
     constructor(context: Context): super(context) {

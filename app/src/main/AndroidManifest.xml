@@ -35,7 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.mcleancode.mobile.UI.Activities.JournalEntryActivity" />
+        <activity android:name="com.example.mcleancode.mobile.UI.JournalEntry.JournalEntryActivity" />
         <activity android:name="com.example.mcleancode.mobile.UI.Activities.CaseFileActivity" />
         <activity android:name="com.example.mcleancode.mobile.UI.Activities.MenuActivity" />
         <activity android:name="com.example.mcleancode.mobile.UI.Activities.JournalEntriesActivity"></activity>

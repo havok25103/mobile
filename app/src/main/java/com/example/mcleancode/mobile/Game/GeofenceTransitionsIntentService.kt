@@ -10,7 +10,7 @@ import com.google.android.gms.location.GeofenceStatusCodes
 import com.google.android.gms.location.GeofencingEvent
 import android.widget.Toast
 import com.example.mcleancode.mobile.R
-import com.example.mcleancode.mobile.UI.Activities.JournalEntryActivity
+import com.example.mcleancode.mobile.UI.JournalEntry.JournalEntryActivity
 
 class GeofenceTransitionsIntentService: IntentService("GeofenceTransitionsIntentService") {
     override fun onHandleIntent(intent: Intent?) {
