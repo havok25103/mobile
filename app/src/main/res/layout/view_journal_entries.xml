@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.example.mcleancode.mobile.UI.HamburgerButton.HamburgerButtonFragment"
+        android:id="@+id/menuButtonFragment"/>
+
+    <com.example.mcleancode.mobile.UI.HeaderText.HeaderTextView
+        android:id="@+id/journalEntriesTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/journal_entries"
+        android:layout_below="@+id/menuButtonFragment"
+        style="@style/HeaderText"/>
+
+    <ListView
+        android:id="@+id/journalEntriesList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/journalEntriesTitle"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="20.0sp"/>
+
+</RelativeLayout>

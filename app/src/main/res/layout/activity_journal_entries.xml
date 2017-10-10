@@ -9,26 +9,9 @@
     tools:context=".UI.JournalEntries.JournalEntriesActivity"
     android:background="@drawable/background_gradient">
 
-    <fragment
+    <com.example.mcleancode.mobile.UI.JournalEntries.JournalEntriesView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:name="com.example.mcleancode.mobile.UI.HamburgerButton.HamburgerButtonFragment"
-        android:id="@+id/menuButtonFragment"/>
-
-    <com.example.mcleancode.mobile.UI.HeaderText.HeaderTextView
-        android:id="@+id/journalEntriesTitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/journal_entries"
-        android:layout_below="@+id/hamburgerButtonFragment"
-        style="@style/HeaderText"/>
-
-    <ListView
-        android:id="@+id/journalEntriesList"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/journalEntriesTitle"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="20.0sp"/>
+        android:id="@+id/journalEntriesView"/>
 
 </RelativeLayout>

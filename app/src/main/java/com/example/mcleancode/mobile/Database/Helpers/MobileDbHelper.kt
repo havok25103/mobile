@@ -19,7 +19,7 @@ class MobileDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.execSQL(LocationScripts.createLocationTable())
         db.beginTransaction()
         try {
-            Seed.locations.forEach { (title, lat, long, radius, entry, status) ->
+            Seed.locations.forEach { (_, title, lat, long, radius, entry, status) ->
                 val values = ContentValues()
                 values.put(LocationSchema.Table.COLUMN_NAME_TITLE, title)
                 values.put(LocationSchema.Table.COLUMN_NAME_LAT, lat)
